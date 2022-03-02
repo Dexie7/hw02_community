@@ -1,4 +1,5 @@
 from django.db import models
+
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -21,5 +22,9 @@ class Post(models.Model):
         on_delete=models.CASCADE,
         related_name='posts'
     )
-    group = models.ForeignKey(Group, on_delete=models.CASCADE,
-                              blank=True, null=True)
+    group = models.ForeignKey(Group, on_delete=models.SET_NULL,
+                              blank=True, null=True,
+                              related_name='groups')
+
+    class Meta:
+        ordering = ['-pub_date']
