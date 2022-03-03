@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 {% block title %}
-  Последние обновления на сайте
+  Последние публикации на сайте
 {% endblock %}
 {% block content %}
   <div class="container py-5">
     <article>
+    <p>
+      Группа {{ group.title }}
+    </p>
       {% for post in posts %}
         <ul>
           <li>
